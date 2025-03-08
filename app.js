@@ -1,14 +1,40 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-//definicion de variables
-let nombreUsuario = prompt('Digite su Nombre');
-    console.log(nombreUsuario);
-let nombreIngresado = prompt('Digite el Nombre de un Amigo');
-    console.log(nombreIngresado);
-    //hasta el momento solo se almacena 1 en la consola
-let amigoSorteado = prompt('Digite Amigo Secreto');
-    console.log(amigoSorteado);
+// definicion de variables
+let amigo = [];
 
-if (nombreUsuario == amigoSorteado){
-    //comparo nombre del usuario con el nombre sorteado, no pueden ser iguales
-    alert('Nombre Usuario No Puede Ser Su Amigo Secreto');
-}
+function agregarAmigo() {
+    let imputAmigo = document.getElementById('amigo');
+    let nombreAmigo = imputAmigo.value;
+
+    if (!nombreAmigo) { 
+        alert('Debes ingresar el nombre de un amigo');
+        return;
+        }
+
+    amigo.push(nombreAmigo);
+    imputAmigo.value = '';  //limpiar el input
+    imputAmigo.focus(); //devolver el foco al input
+    renderizarAmigos();
+    }   
+    function renderizarAmigos() {
+        let listaAmigos = document.getElementById('listaAmigos');
+        listaAmigos.innerHTML = '';
+
+        for (let i = 0; i < amigo.length; i++) {
+            let item = document.createElement('li');
+            li.textContent = amigo[i];
+            listaAmigos.appendChild(item);
+        }
+    }
+    function sortearAmigo() {
+           if (amigo.length === 0) {
+            alert('No hay amigos para sortear');
+            return;
+            } 
+            let amigoSorteado = amigo[Math.floor(Math.random() * amigo.length)];
+            {
+            let resultado = document.getElementById('resultado');
+            resultado.innerHTML = `El amigo sorteado es ${amigoSorteado}`;
+            let limpiarLista = document.getElementById('listaAmigos');
+            limpiarLista.innerHTML = '';
+            }
+    }
